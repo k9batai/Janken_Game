@@ -30,6 +30,17 @@ public class Main {
 		//ウィンドウにヘッダーパネルを追加
 		frame.add(headerPanel, BorderLayout.NORTH);
 		
+		//コンテンツパネル
+		JPanel contentsPanel = new JPanel();
+		contentsPanel.setBackground(Color.WHITE);
+		frame.add(contentsPanel, BorderLayout.CENTER);
+				
+		//フッターパネル
+		JPanel footerPanel = new JPanel();
+		footerPanel.setBackground(Color.BLACK);
+		footerPanel.setPreferredSize(new Dimension(640, 50));
+		frame.add(footerPanel, BorderLayout.SOUTH);		
+		
 		//ウィンドウを表示する
 		frame.setVisible(true);
 	}
