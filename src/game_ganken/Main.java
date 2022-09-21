@@ -21,28 +21,45 @@ public class Main {
 		//ウィンドウのサイズを変更できないようにする
 		frame.setResizable(false);
 		
-		//JPanelクラスをインスタンス化
-		JPanel headerPanel = new JPanel();
-		//パネルの色を黒にする
-		headerPanel.setBackground(Color.BLACK);
-		//ヘッダーパネルのサイズを「横幅640、縦幅50」に設定
-		headerPanel.setPreferredSize(new Dimension(640, 50));
+		//ヘッダーパネルを作成
+		JPanel headerPanel = makePanel(Color.BLACK,640, 50);
 		//ウィンドウにヘッダーパネルを追加
 		frame.add(headerPanel, BorderLayout.NORTH);
 		
-		//コンテンツパネル
-		JPanel contentsPanel = new JPanel();
-		contentsPanel.setBackground(Color.WHITE);
+		//コンテンツパネルを作成
+		JPanel contentsPanel = makePanel(Color.WHITE);
+		//コンテンツパネルを作成
 		frame.add(contentsPanel, BorderLayout.CENTER);
 				
 		//フッターパネル
-		JPanel footerPanel = new JPanel();
-		footerPanel.setBackground(Color.BLACK);
-		footerPanel.setPreferredSize(new Dimension(640, 50));
+		JPanel footerPanel = makePanel(Color.BLACK,640, 50);
+		//ウィンドウにフッターパネルを追加
 		frame.add(footerPanel, BorderLayout.SOUTH);		
-		
+	
 		//ウィンドウを表示する
 		frame.setVisible(true);
+	}
+	
+	//パネルを作るメソッド（幅と高さを指定する用）
+	static JPanel makePanel(Color color, int width, int height) {
+		//JPanelクラスをインスタンス化
+		JPanel panel = new JPanel();
+		//パネルの色を変更する
+		panel.setBackground(color);
+		//パネルのサイズを「width、height」に設定
+		panel.setPreferredSize(new Dimension(width, height));
+		//作ったパネルを返す
+		return panel;
+	}
+		
+	//パネルを作るメソッド（幅と高さを指定しない用）
+	static JPanel makePanel(Color color) {
+		//JPanelクラスをインスタンス化
+		JPanel panel = new JPanel();
+		//パネルの色を変更する
+		panel.setBackground(color);
+		//作ったパネルを返す
+		return panel;
 	}
 
 }
