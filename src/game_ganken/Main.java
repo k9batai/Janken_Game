@@ -17,6 +17,7 @@ public class Main {
 		frame.setResizable(false);
 		//ウィンドウを表示する
 		frame.setVisible(true);
+		
 	}
 
 }
