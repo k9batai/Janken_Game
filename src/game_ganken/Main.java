@@ -3,8 +3,10 @@ package game_ganken;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class Main {
@@ -23,6 +25,20 @@ public class Main {
 		
 		//ヘッダーパネルを作成
 		JPanel headerPanel = makePanel(Color.BLACK,640, 50);
+		//ヘッダーパネルに、レイアウトマネージャとしてBorderLayoutを指定
+		headerPanel.setLayout(new BorderLayout());
+		//JLabelクラスをインスタンス化
+		JLabel label = new JLabel("「さあ、じゃんけんで勝負だ！」");
+		//テキストの文字を白にする
+		label.setForeground(Color.WHITE);
+		//テキストのフォントを設定
+		label.setFont(new Font("ＭＳ ゴシック", Font.PLAIN, 24));
+		//テキストの位置を、水平方向の中心にする
+		label.setHorizontalAlignment(JLabel.CENTER);
+		//テキストの位置を、垂直方向の中心にする
+		label.setVerticalAlignment(JLabel.CENTER);
+		//ヘッダーパネルにテキストを追加
+		headerPanel.add(label);
 		//ウィンドウにヘッダーパネルを追加
 		frame.add(headerPanel, BorderLayout.NORTH);
 		
