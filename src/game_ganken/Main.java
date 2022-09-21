@@ -1,6 +1,11 @@
 package game_ganken;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class Main {
 
@@ -15,9 +20,18 @@ public class Main {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//ウィンドウのサイズを変更できないようにする
 		frame.setResizable(false);
+		
+		//JPanelクラスをインスタンス化
+		JPanel headerPanel = new JPanel();
+		//パネルの色を黒にする
+		headerPanel.setBackground(Color.BLACK);
+		//ヘッダーパネルのサイズを「横幅640、縦幅50」に設定
+		headerPanel.setPreferredSize(new Dimension(640, 50));
+		//ウィンドウにヘッダーパネルを追加
+		frame.add(headerPanel, BorderLayout.NORTH);
+		
 		//ウィンドウを表示する
 		frame.setVisible(true);
-		
 	}
 
 }
