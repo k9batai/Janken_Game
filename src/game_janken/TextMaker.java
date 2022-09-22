@@ -1,4 +1,4 @@
-package game_ganken;
+package game_janken;
 
 import java.awt.Color;
 import java.awt.Font;
