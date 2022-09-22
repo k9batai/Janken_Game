@@ -2,7 +2,6 @@ package game_ganken;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 
@@ -28,29 +27,29 @@ public class Main {
 		frame.setResizable(false);
 		
 		//ヘッダーパネルを作成
-		JPanel headerPanel = makePanel(Color.BLACK,640, 50);
+		JPanel headerPanel = PanelMaker.makePanel(Color.BLACK,640, 50);
 		//ヘッダーパネルに、レイアウトマネージャとしてBorderLayoutを指定
 		headerPanel.setLayout(new BorderLayout());
 		//テキストを作成
-		JLabel headerLabel = makeText("「さあ、じゃんけんで勝負だ！」", 24, Color.WHITE);
+		JLabel headerLabel = TextMaker.makeText("「さあ、じゃんけんで勝負だ！」", 24, Color.WHITE);
 		//ヘッダーパネルにテキストを追加
 		headerPanel.add(headerLabel);
 		//ウィンドウにヘッダーパネルを追加
 		frame.add(headerPanel, BorderLayout.NORTH);
 		
 		//コンテンツパネルを作成
-		JPanel contentsPanel = makePanel(Color.WHITE);
+		JPanel contentsPanel = PanelMaker.makePanel(Color.WHITE);
 		//コンテンツパネルに、レイアウトマネージャとしてBorderLayoutを指定
 		contentsPanel.setLayout(new BorderLayout());
 		//テキストを作成
-		JLabel contentsLabel = makeText("じゃんけん……", 54, Color.BLACK);
+		JLabel contentsLabel = TextMaker.makeText("じゃんけん……", 54, Color.BLACK);
 		//コンテンツパネルにテキストを追加
 		contentsPanel.add(contentsLabel);
 		//コンテンツパネルを作成
 		frame.add(contentsPanel, BorderLayout.CENTER);
 				
 		//フッターパネル
-		JPanel footerPanel = makePanel(Color.BLACK,640, 50);
+		JPanel footerPanel = PanelMaker.makePanel(Color.BLACK,640, 50);
 		//フッターパネルに、レイアウトマネージャとしてGridLayoutを指定
 		footerPanel.setLayout(new GridLayout());
 
@@ -68,28 +67,6 @@ public class Main {
 	
 		//ウィンドウを表示する
 		frame.setVisible(true);
-	}
-	
-	//パネルを作るメソッド（幅と高さを指定する用）
-	static JPanel makePanel(Color color, int width, int height) {
-		//JPanelクラスをインスタンス化
-		JPanel panel = new JPanel();
-		//パネルの色を変更する
-		panel.setBackground(color);
-		//パネルのサイズを「width、height」に設定
-		panel.setPreferredSize(new Dimension(width, height));
-		//作ったパネルを返す
-		return panel;
-	}
-		
-	//パネルを作るメソッド（幅と高さを指定しない用）
-	static JPanel makePanel(Color color) {
-		//JPanelクラスをインスタンス化
-		JPanel panel = new JPanel();
-		//パネルの色を変更する
-		panel.setBackground(color);
-		//作ったパネルを返す
-		return panel;
 	}
 	
 	//テキストを作るメソッド
