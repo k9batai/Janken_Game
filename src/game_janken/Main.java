@@ -17,6 +17,7 @@ public class Main {
 	private static String[] hands = {"グー", "チョキ", "パー"};
 	
 	static JLabel contentsLabel;
+	static JLabel headerLabel;
 
 	public static void main(String[] args) {
 		//JFrameクラスをインスタンス化
@@ -35,7 +36,7 @@ public class Main {
 		//ヘッダーパネルに、レイアウトマネージャとしてBorderLayoutを指定
 		headerPanel.setLayout(new BorderLayout());
 		//テキストを作成
-		JLabel headerLabel = TextMaker.makeText("「さあ、じゃんけんで勝負だ！」", 24, Color.WHITE);
+		headerLabel = TextMaker.makeText("「さあ、じゃんけんで勝負だ！」", 24, Color.WHITE);
 		//ヘッダーパネルにテキストを追加
 		headerPanel.add(headerLabel);
 		//ウィンドウにヘッダーパネルを追加
@@ -85,6 +86,19 @@ public class Main {
 			String computerHand = hands[computerHandNum];
 			//コンテンツパネルのテキストに、コンピュータの手を指定
 			contentsLabel.setText(computerHand);
+			//プレイヤーが出した手に対応した数値を入れるための変数
+			int playerHandNum=0;
+			//プレイヤーが出した手の数値を探してplayerHandNumに入れる
+			for (int i=0; i<hands.length; i++) {
+				if (hands[i] == e.getActionCommand()) {
+					playerHandNum=i;
+					break;
+				}
+			}
+			//プレイヤーとコンピュータの手を比べて、結果のセリフを取得
+			String serif = Judge.getResultText(playerHandNum, computerHandNum);
+			//ヘッダーにセリフを表示
+			headerLabel.setText(serif);
 		}
 	}
 
